@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>☁️ Weather App</title>
+  <link rel="stylesheet" href="weather.css" />
+</head>
+<body>
+  <h1>☁️ Weather App</h1>
+
+  <div id="search-wrapper">
+    <!--Removed inline oninput handler -->
+    <input type="text" id="cityInput" placeholder="Enter city..." />
+    <ul id="suggestions"></ul>
+  </div>
+
+  <div class="buttons">
+    <button onclick="getWeatherByCity()">🔍 Search</button>
+    <button onclick="getWeatherByLocation()">📍 My Location</button>
+    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <button onclick="toggleUnit()">°C / °F</button>
+  </div>
+
+  <div id="weatherResult"></div>
+  <div id="alerts"></div>
+  <div id="forecast"></div>
+
+  <h3 style="text-align: center;">🗺️ Location Map</h3>
+  <iframe id="mapFrame"></iframe>
+
+  <script src="weather.js"></script>
+</body>
+</html>
