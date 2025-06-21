@@ -5,12 +5,15 @@ body {
   padding: 0;
   background-color: #f9f9f9;
   transition: background-color 0.3s;
+  
 }
 .background{
   background-image: url("https://img.freepik.com/premium-vector/sky-clouds-design-with-flat-cartoon-poster-flyers-postcards-web-banners_771576-58.jpg");
   background-size: cover;
+  overflow: hidden;
   height: 100vh;
-  margin-top: 0;
+  margin: 0;
+  padding: 0;
 }
 body.dark {
   background-color: #1e1e1e;
@@ -21,6 +24,7 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem;
+  margin-top: 0;
 }
 
 /* Search Wrapper */
@@ -111,6 +115,7 @@ body.dark #suggestions li:hover {
   box-sizing: border-box;
 }
 
+
 #mapFrame {
   display: block;
   margin: 20px auto;
@@ -134,7 +139,7 @@ body.dark #suggestions li:hover {
   padding: 10px;
   border-radius: 8px;
   flex: 1 1 150px;
-  max-width: 200px;
+  max-width: 150px;
   text-align: center;
   transition: background-color 0.3s;
 }
