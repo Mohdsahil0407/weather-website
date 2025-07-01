@@ -203,6 +203,7 @@ body.dark .forecast-day:hover {
 
   #mapFrame {
     height: 200px;
+    width:80%;
   }
 }
 
