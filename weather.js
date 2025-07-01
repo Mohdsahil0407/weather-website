@@ -230,7 +230,7 @@ async function loadStateCards() {
   const container = document.getElementById("space");
   container.innerHTML = "";
 
-  statesOfIndia.forEach(async (item) => {
+  for (const item of statesOfIndia) {
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${item.capital}&appid=${apiKey}&units=metric`;
       const res = await fetch(url);
@@ -239,6 +239,10 @@ async function loadStateCards() {
 
       const card = document.createElement("div");
       card.className = "state-card";
+      card.setAttribute("data-name", item.state);
+      card.setAttribute("data-temp", temp);
+      card.setAttribute("data-humidity", humidity);
+
       card.innerHTML = `
         <img src="${item.image}" alt="${item.state}" onerror="this.src='https://via.placeholder.com/300x140?text=${item.state}'">
         <div class="info">
@@ -247,16 +251,45 @@ async function loadStateCards() {
           <p>💧 ${humidity}% Humidity</p>
         </div>
       `;
+
       container.appendChild(card);
     } catch (err) {
       console.error(`Error loading weather for ${item.state}:`, err);
     }
-  });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   loadStateCards();
 });
+
+function sortCards() {
+  const sortValue = document.getElementById("sortSelect").value;
+  const container = document.getElementById("space");
+  const cards = Array.from(container.querySelectorAll(".state-card"));
+
+  let sortedCards = [...cards];
+
+  switch (sortValue) {
+    case "temp-asc":
+      sortedCards.sort((a, b) => parseFloat(a.dataset.temp) - parseFloat(b.dataset.temp));
+      break;
+    case "temp-desc":
+      sortedCards.sort((a, b) => parseFloat(b.dataset.temp) - parseFloat(a.dataset.temp));
+      break;
+    case "humidity-asc":
+      sortedCards.sort((a, b) => parseFloat(a.dataset.humidity) - parseFloat(b.dataset.humidity));
+      break;
+    case "humidity-desc":
+      sortedCards.sort((a, b) => parseFloat(b.dataset.humidity) - parseFloat(a.dataset.humidity));
+      break;
+    default:
+      return; // do nothing
+  }
+
+  container.innerHTML = "";
+  sortedCards.forEach(card => container.appendChild(card));
+}
 
 //  Scroll Progress Bar Logic
 window.addEventListener("scroll", () => {

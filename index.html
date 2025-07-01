@@ -33,6 +33,17 @@
   </div>
 
   <h2 style="text-align: center; margin-top: 30px;">Weather in Indian States</h2>
+<div class="sort-wrapper">
+  <label for="sortSelect">🔽 Sort By:</label>
+  <select id="sortSelect" onchange="sortCards()">
+    <option value="default">-- Select --</option>
+    <option value="temp-asc">🌡️ Temp (Low to High)</option>
+    <option value="temp-desc">🌡️ Temp (High to Low)</option>
+    <option value="humidity-asc">💧 Humidity (Low to High)</option>
+    <option value="humidity-desc">💧 Humidity (High to Low)</option>
+  </select>
+</div>
+
   <div id="space" class="card-grid"></div>
 
   <script src="weather.js"></script>
