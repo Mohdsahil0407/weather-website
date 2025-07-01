@@ -3,35 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>☁️ Weather App</title>
+  <title>Weather App</title>
   <link rel="stylesheet" href="weather.css" />
 </head>
 <body>
+  <div id="scroll-progress-container">
+  <div id="scroll-progress"></div>
+</div>
   <div class="background">
-<h1>☁️ Weather App</h1>
+    <h1>Weather Web</h1>
 
-  <div id="search-wrapper">
-    <!--Removed inline oninput handler -->
-    <input type="text" id="cityInput" placeholder="Enter city..." />
-    <ul id="suggestions"></ul>
+    <div id="search-wrapper">
+      <input type="text" id="cityInput" placeholder="Enter city..." />
+      <ul id="suggestions"></ul>
+    </div>
+
+    <div class="buttons">
+      <button onclick="getWeatherByCity()">🔍 Search</button>
+      <button onclick="getWeatherByLocation()">📍 My Location</button>
+      <button onclick="toggleUnit()">°C / °F</button>
+    </div>
+
+    <div id="weatherResult"></div>
+    <div id="alerts"></div>
+    <div id="forecast"></div>
+
+    <h3 style="text-align: center;">🗺️ Location Map</h3>
+    <iframe id="mapFrame"></iframe>
   </div>
 
-  <div class="buttons">
-    <button onclick="getWeatherByCity()">🔍 Search</button>
-    <button onclick="getWeatherByLocation()">📍 My Location</button>
-    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
-    <button onclick="toggleUnit()">°C / °F</button>
-  </div>
+  <h2 style="text-align: center; margin-top: 30px;">Weather in Indian States</h2>
+  <div id="space" class="card-grid"></div>
 
-  <div id="weatherResult"></div>
-  <div id="alerts"></div>
-  <div id="forecast"></div>
-
-  <h3 style="text-align: center;">🗺️ Location Map</h3>
-  <iframe id="mapFrame"></iframe>
-
-
-  </div>
   <script src="weather.js"></script>
 </body>
 </html>
