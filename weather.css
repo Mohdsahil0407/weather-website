@@ -178,8 +178,11 @@ body.dark .forecast-day:hover {
   .buttons {
     flex-direction: column;
     align-items: center;
-  }
 
+  }
+#search-wrapper{
+  width: 70%;
+}
   .buttons button {
     width: 100%;
     max-width: 200px;
@@ -194,6 +197,9 @@ body.dark .forecast-day:hover {
   .forecast-day {
     flex: 1 1 100%;
   }
+  #search-wrapper{
+  width: 70%;
+}
 
   #mapFrame {
     height: 200px;
@@ -240,4 +246,32 @@ body.dark .forecast-day:hover {
 
 .state-card .info p {
   margin: 5px 0;
+}
+.footer {
+  background-color: #aaa8a8;
+  color: #333;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+body.dark .footer {
+  background-color: #1e1e1e;
+  color: #878585;
+  border-top: 1px solid #363535;
+}
+
+body.dark .footer a {
+  color: #66b3ff;
 }
